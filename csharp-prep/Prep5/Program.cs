@@ -38,10 +38,10 @@ class Program
         int square = numberFavorite * numberFavorite;
         return square;
     }
-    static void DisplayResult(string name,int square)
+    static void DisplayResult(string name, int square)
     {
         Console.WriteLine($"{name}, the square of your number is {square}");
     }
-
+   
 
 }
