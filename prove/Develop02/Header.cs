@@ -11,7 +11,7 @@ public class Header
     public void displayDate()
     {
 
-        Console.WriteLine($"Today is {__date}, time to write");
+        Console.WriteLine($"Today is {__date} ");
 
     }
     // Welcome message
@@ -30,5 +30,7 @@ public class Header
         return __name;
 
     }
+
+    
 
 }
