@@ -4,6 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop02 World!");
+        Header headerJournal = new Header();
+        headerJournal.nameUser();
+        headerJournal.displayDate();
+        headerJournal.DisplayWelcomeMessage();
+        
+
+        
+
+
+
     }
 }
