@@ -55,7 +55,7 @@ public class answerYes{
     
  
 
-   public  static void DisplayResultJournal(string reading, string learning,string experience, string ponder)
+   public void DisplayResultJournal(string reading, string learning,string experience, string ponder)
     {
         Console.WriteLine($"My reading for this today was:{reading},");
         Console.WriteLine($"My learning from my reading was:{learning},");

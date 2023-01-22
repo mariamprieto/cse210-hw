@@ -5,7 +5,7 @@ public class Header
 
 
     // Declaration of attributes
-    public string __name = "";
+    string __name = "";
     DateTime __date = DateTime.Now;
 
     public void displayDate()
