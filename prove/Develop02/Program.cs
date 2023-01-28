@@ -5,16 +5,15 @@ class Program
     
     static void Main(string[] args)
     {
-        Header headerJournal = new Header();
-        headerJournal.nameUser();
-        headerJournal.displayDate();
-        headerJournal.DisplayWelcomeMessage();
+        Menu menuJournal = new Menu();
+        menuJournal.nameUser();
+        menuJournal.displayDate();
+        menuJournal.DisplayWelcomeMessage();
+        menuJournal.OptionMenu();
 
 
-        initialPrompt initial = new initialPrompt();
-        initial.promptgenerator();
-        initial.validation();
 
-        
+
+
     }
 }

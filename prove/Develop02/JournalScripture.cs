@@ -1,70 +1,63 @@
 using System;
 using System.IO;
 
-public class answerYes{
+public class answerYes
+{
 
-    string dailyReading = Question1();
-    string dailyLearning = Question2();
-    string dailyExperience = Question3();
-    
-    string dailyGoal = Question4();
+    string __reading = "";
+    string __learning = "";
+    string __experience = "";
+    string __ponder = "";
+    string __choice = "";
 
-    string __saveJournal = Question5();
 
-    
 
-    public static string Question1()
+
+    public string Question1()
     {
         Console.Write("What was your reading of the scriptures today? ");
-        string reading = Console.ReadLine();
+        __reading = Console.ReadLine();
 
-        return reading;
+        return __reading;
     }
 
-    public static string Question2()
+    public string Question2()
     {
         Console.Write("What did you learn from this reading?");
-        string learning = Console.ReadLine();
+        __learning = Console.ReadLine();
 
-        return learning;
+        return __learning;
     }
 
-    public static string Question3()
+    public string Question3()
     {
         Console.Write("Did you have an experience that reinforced your reading? Tell us");
-        string experience = Console.ReadLine();
+        __experience = Console.ReadLine();
 
-        return experience;
+        return __experience;
     }
 
-   public  static string Question4()
+    public string Question4()
     {
         Console.Write("What will be your goal this week according to what you have learned?");
-        string ponder = Console.ReadLine();
+        __ponder = Console.ReadLine();
 
-        return ponder;
+        return __ponder;
     }
 
-    public static string Question5()
+    public string Question5()
     {
-        Console.Write("Type 1 to save your journal");
-        string save = Console.ReadLine();
-        return save;
-              
-        }
-    
- 
+        Console.Write("Good Job! You have finished your diary today, do you want to save it or try again? ");
 
-   public void DisplayResultJournal(string reading, string learning,string experience, string ponder)
-    {
-        Console.WriteLine($"My reading for this today was:{reading},");
-        Console.WriteLine($"My learning from my reading was:{learning},");
-        Console.WriteLine($"My experience about that reading was:{experience},");
-        Console.WriteLine($"My goal from these scriptures is:{ponder},");
-    }
-
+      
+                   
+        return __choice;
 
     }
+
+
+
+}
 
 
 

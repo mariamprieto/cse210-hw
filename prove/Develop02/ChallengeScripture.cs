@@ -3,59 +3,60 @@ using System;
 public class answerNo
 {
 
-    string dailyChallenges = Question1();
-    string dailyplan = Question2();
-    string dailychoice = Question3();
+    string __challenges = "";
+    string __plan = "";
 
-    string dailyGoal = Question4();
+    string __newChance = "";
 
-    string saveJournal = Question5();
-
-
-   
+    string __testimony = "";
+    string __choice="";
 
 
-    public static string Question1()
+
+
+    public string Question1()
     {
         Console.Write("Tell me how your day was, what challenges did you have to read the scriptures?");
-        string challenges = Console.ReadLine();
+        __challenges = Console.ReadLine();
 
-        return challenges;
+        return __challenges;
     }
 
-    public static string Question2()
+    public string Question2()
     {
         Console.Write("What do you plan for tomorrow to read the scriptures?");
-        string plan = Console.ReadLine();
+        __plan = Console.ReadLine();
 
-        return plan;
+        return __plan;
     }
 
-    public static string Question3()
+    public string Question3()
     {
         Console.Write("What scripture will you choose to read tomorrow?");
-        string choice = Console.ReadLine();
+        __newChance = Console.ReadLine();
 
-        return choice;
+        return __newChance;
     }
 
-    public static string Question4()
+    public string Question4()
     {
         Console.Write("You can share your testimony about some principle that you have learned from scriptures");
-        string testimony = Console.ReadLine();
+        __testimony = Console.ReadLine();
 
-        return testimony;
+        return __testimony;
     }
-    public  static string Question5()
+    public string Question5()
     {
-        Console.Write("Type 1 to save your journal");
-         string __save = Console.ReadLine();
+        Console.Write("Good job! You have finished your diary today, do you want to save it or try again? ");
+      
 
-        return __save;
+        return __choice;
+
     }
 
-   
-    
+
+
+
 
 
 }

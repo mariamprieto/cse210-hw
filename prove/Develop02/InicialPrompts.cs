@@ -5,8 +5,6 @@ using System;
 public class initialPrompt
 {
 
-
-
     string __prompt = "";
 
     public string promptgenerator()
@@ -31,24 +29,24 @@ public class initialPrompt
 
         if (__prompt == "Yes")
         {
-            answerYes Reading = new answerYes();
-            answerYes.Question1();
-            answerYes.Question2();
-            answerYes.Question3();
-            answerYes.Question4();
-            answerYes.Question5();
-        
-
+            answerYes Question = new answerYes();
+            Question.Question1();
+            Question.Question2();
+            Question.Question3();
+            Question.Question4();
+            Question.Question5();
+            
         }
 
         else 
         {
             answerNo Challenge = new answerNo();
-            answerNo.Question1();
-            answerNo.Question2();
-            answerNo.Question3();
-            answerNo.Question4();
-            answerNo.Question5();
+            Challenge.Question1();
+            Challenge.Question2();
+            Challenge.Question3();
+            Challenge.Question4();
+            Challenge.Question5();
+           
             
         }
 
