@@ -8,7 +8,7 @@ public class Menu
     string __choice = "";
     DateTime __date = DateTime.Now;
 
-
+    //Object initialization
     initialPrompt InitialQuestion = new initialPrompt();
 
 
@@ -19,7 +19,7 @@ public class Menu
         Console.WriteLine($"Today is {__date} ");
 
     }
-    // Empty method to welcome the user with menu details
+    // Empty method to welcome the user 
     public void DisplayWelcomeMessage()
     {
 
@@ -27,29 +27,35 @@ public class Menu
 
     }
 
+    //Menu details
     public void OptionMenu()
     {
 
-        while (__choice!="5")
+        while (__choice != "5")
         {
             DisplayMenu();
             __choice = Console.ReadLine();
-            if (__choice == "1"){
+            if (__choice == "1")
+            {
 
-                InitialQuestion.promptgenerator();
+                InitialQuestion.PromptGenerator();
                 InitialQuestion.validation();
             }
 
-            else if(__choice=="2"){
-                Console.WriteLine("Read file in process......");
+            else if (__choice == "2")
+            {
+
+                Console.WriteLine($"I, {__name} today {__date}, my experience with the scriptures was:");
+                InitialQuestion.DisplayJournal();
+
             }
             else if (__choice == "3")
             {
-                Console.WriteLine("Loading file in process......");
+                InitialQuestion.SaveJournal();
             }
             else if (__choice == "4")
             {
-                Console.WriteLine("Saving file in process......");
+                Console.WriteLine("Loading file in process......");
 
             }
             else if (__choice == "5")
@@ -66,8 +72,8 @@ public class Menu
 
         }
 
-       
-        
+
+
     }
     //Method that obtains the username and returns it to the welcome, 
     //this name will be used to open the different journals according to the username
@@ -83,15 +89,16 @@ public class Menu
 
 
     //Static menu function
-    static void DisplayMenu (){
+    static void DisplayMenu()
+    {
         Console.WriteLine("Select one option ");
         Console.WriteLine("1 -- Write");
         Console.WriteLine("2 -- Display");
-        Console.WriteLine("3 -- Load");
-        Console.WriteLine("4 -- Save");
+        Console.WriteLine("3 -- Save");
+        Console.WriteLine("4 -- Load");
         Console.WriteLine("5 -- Exit");
 
-        
+
     }
 
 
