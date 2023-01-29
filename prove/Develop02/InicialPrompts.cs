@@ -14,11 +14,6 @@ public class initialPrompt
     string fileName = "myFile.txt";
     
 
-
-
-
-
-
     //Method that verifies if the user read the scripts or not, to determine the questions that will be asked
     public string PromptGenerator()
 
