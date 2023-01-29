@@ -27,6 +27,7 @@ public class Menu
 
     }
 
+
     //Menu details
     public void OptionMenu()
     {
@@ -55,7 +56,7 @@ public class Menu
             }
             else if (__choice == "4")
             {
-                Console.WriteLine("Loading file in process......");
+                InitialQuestion.LoadJournal();
 
             }
             else if (__choice == "5")

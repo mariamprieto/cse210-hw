@@ -10,6 +10,9 @@ public class answerYes
     string __ponder = "";
     string __choice = "";
 
+  
+    
+
 
 
     //Methods that contain the questions the user asks to fill out the journal
@@ -68,9 +71,11 @@ public class answerYes
     {
 
         return $"{__reading}~~{__learning}~~{ __experience}~~{__ponder}";
+
       
     }
 
+   
 }
 
 
