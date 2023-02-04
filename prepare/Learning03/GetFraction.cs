@@ -1,15 +1,14 @@
 using System;
 
-
 public class Fraction
 {
-    
+
     private int __numerator;
     private int __denominator;
 
     public Fraction()
     {
-       
+
         __denominator = 1;
         __numerator = 1;
     }
@@ -28,14 +27,14 @@ public class Fraction
 
     public string GetFraction()
     {
-        
+
         string __fraction = $"{__numerator}/{__denominator}";
         return __fraction;
     }
 
     public double GetValue()
     {
-        
+
         return (double)__numerator / (double)__denominator;
     }
 
