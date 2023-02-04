@@ -21,8 +21,8 @@ public class Fraction
 
     public Fraction(int top, int bottom)
     {
-        __denominator = top;
-        __numerator = bottom;
+        __denominator = bottom;
+        __numerator = top;
     }
 
     public string GetFraction()
