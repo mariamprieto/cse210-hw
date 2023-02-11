@@ -1,9 +1,27 @@
 using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
-class Program
+
+namespace DeserializeFromFile
 {
-    static void Main(string[] args)
+
+    class Program
     {
-        Console.WriteLine("Hello Develop03 World!");
+        static void Main(string[] args)
+        {
+            string fileName = "scriptures.json";
+            ReadJson readfile = new ReadJson ();
+            string jsonString = File.ReadAllText(fileName);
+            
+            readfile = JsonSerializer.Deserialize<ReadJson>(jsonString );
+          
+          Console.WriteLine ($"Volume Book: {readfile.volume_title}");
+            
+            
+
+            
+
+        }
     }
 }
