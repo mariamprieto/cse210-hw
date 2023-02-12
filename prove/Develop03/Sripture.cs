@@ -7,33 +7,33 @@ class Scripture
 
     private string __volume;
     private string __book;
-    private int __chapter;
-    private int __startVerse;
-    private int __endVerse;
+    private int? __chapter;
+    private int? __startVerse;
+    private int? __endVerse;
     private string __text;
 
     //Constructor that stores the different contents of scriptures
-    public Scripture()
+    public Scripture(string v)
     {
+        __volume = "";
+        __book = "";
+        __chapter = null;
+        __startVerse = null;
+        __endVerse = null;
+        __text = "";
+
 
     }
 
-    public Scripture(string volume, string book, int chapter, int startVerse)
+ 
+
+    public Scripture(string volume, string book, int chapter, int startVerse, string text)
     {
         __volume = volume;
         __book = book;
         __chapter = chapter;
         __startVerse = startVerse;
-
-    }
-
-    public Scripture(string volume, string book, int chapter, int startVerse, int endVerse)
-    {
-        __volume = volume;
-        __book = book;
-        __chapter = chapter;
-        __startVerse = startVerse;
-        __endVerse = endVerse;
+        __text = text;
     }
 
     public Scripture(string volume, string book, int chapter, int startVerse, int endVerse, string text)
@@ -46,10 +46,14 @@ class Scripture
         __text = text;
     }
 
-    public string GetScripture()
+    public string GetScriptureoneVerse()
     {
 
+        return ($"{__volume},{__book} {__chapter}:{__startVerse}; {__text}");
+    }
+    public string GetScripturetwoVerse()
+    {
 
-        return "";
+        return ($"{__volume},{__book} {__chapter}:{__startVerse}-{__endVerse}; {__text}");
     }
 }

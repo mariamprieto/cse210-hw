@@ -10,17 +10,13 @@ namespace DeserializeFromFile
     {
         static void Main(string[] args)
         {
-            string fileName = "scriptures.json";
-            ReadJson readfile = new ReadJson ();
-            string jsonString = File.ReadAllText(fileName);
-            
-            readfile = JsonSerializer.Deserialize<ReadJson>(jsonString );
-          
-          Console.WriteLine ($"Volume Book: {readfile.volume_title}");
-            
-            
 
-            
+            Scripture reference = new Scripture("Book of Mormon","Nephi", 3,7, "A donde");
+            Console.WriteLine(reference.GetScriptureoneVerse ());
+
+            Scripture reference2 = new Scripture("Book of Mormon", "Nephi", 3, 7,8, "A donde");
+            Console.WriteLine(reference2.GetScripturetwoVerse());
+
 
         }
     }
