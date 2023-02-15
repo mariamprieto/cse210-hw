@@ -13,7 +13,7 @@ class Scripture
     private string __text;
 
     //Constructor that stores the different contents of scriptures
-    public Scripture(string v)
+    public Scripture()
     {
         __volume = "";
         __book = "";
