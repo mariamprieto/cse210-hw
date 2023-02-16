@@ -37,8 +37,6 @@ class Choices{
                 }
                 
 
-
-
             }
 
             else if (__choice == "2")
