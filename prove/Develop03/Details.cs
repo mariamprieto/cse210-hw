@@ -44,7 +44,7 @@ class Choices{
             else if (__choice == "2")
             {
 
-                Scripture reference2 = new Scripture("Book of Mormon", "Proverbs", 3, 5, 6, "Trust in the Lord with all thine heart; and lean not unto thine own understanding.In all thy ways acknowledge him, and he shall direct thy paths.");
+                Scripture reference2 = new Scripture("Old Testament", "Proverbs", 3, 5, 6, "Trust in the Lord with all thine heart; and lean not unto thine own understanding.In all thy ways acknowledge him, and he shall direct thy paths.");
                 Console.WriteLine(reference2.GetScripturetwoVerse());
                 DisplayMenu2();
                 
@@ -61,7 +61,7 @@ class Choices{
             }
             else if (__choice == "3")
             {
-                Scripture reference2 = new Scripture("Book of Mormon", "Matheus", 4, 4, "But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.");
+                Scripture reference2 = new Scripture("New testament", "Matheus", 4, 4, "But he answered and said, It is written, Man shall not live by bread alone, but by every word that proceedeth out of the mouth of God.");
                 Console.WriteLine(reference2.GetScriptureoneVerse());
                 DisplayMenu2();
                
@@ -114,10 +114,10 @@ class Choices{
     static void DisplayMenu()
     {
         Console.WriteLine("Select one option ");
-        Console.WriteLine("1 -- 1 Nephy 3:7");
+        Console.WriteLine("1 -- 1 Nephi 3:7");
         Console.WriteLine("2 -- Proverbs 3:5-6");
         Console.WriteLine("3 -- Matheus 4:4");
-        Console.WriteLine("4 -- alma 5:12-13 ");
+        Console.WriteLine("4 -- Alma 5:12-13 ");
         Console.WriteLine("5 -- Quit");
 
 
