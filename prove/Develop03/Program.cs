@@ -2,16 +2,17 @@ using System;
 
 
 
-    class Program
+class Program
+{
+    static void Main(string[] args)
+    
     {
-        static void Main(string[] args)
-        {
 
-            Choices menu = new Choices();
+        Choices menu = new Choices();
         menu.DisplayWelcomeMessage();
         menu.OptionMenu();
 
 
 
     }
-    }
+}

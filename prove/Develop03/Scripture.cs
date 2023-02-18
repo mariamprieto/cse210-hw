@@ -1,5 +1,7 @@
 using System;
 
+using System;
+
 class Scripture
 {
 
@@ -7,10 +9,10 @@ class Scripture
 
     private string __volume;
     private string __book;
-    private int? __chapter;
-    private int? __startVerse;
-    private int? __endVerse;
-    private string __text;
+    private string __chapter;
+    private string __startVerse;
+    private string __endVerse;
+   
 
     //Constructor that stores the different contents of scriptures
     public Scripture()
@@ -20,40 +22,40 @@ class Scripture
         __chapter = null;
         __startVerse = null;
         __endVerse = null;
-        __text = "";
+      
 
 
     }
 
- 
 
-    public Scripture(string volume, string book, int chapter, int startVerse, string text)
+
+    public Scripture(string volume, string book, string chapter, string startVerse)
     {
         __volume = volume;
         __book = book;
         __chapter = chapter;
         __startVerse = startVerse;
-        __text = text;
+       
     }
 
-    public Scripture(string volume, string book, int chapter, int startVerse, int endVerse, string text)
+    public Scripture(string volume, string book, string chapter, string startVerse, string endVerse)
     {
         __volume = volume;
         __book = book;
         __chapter = chapter;
         __startVerse = startVerse;
         __endVerse = endVerse;
-        __text = text;
+        
     }
 
     public string GetScriptureoneVerse()
     {
 
-        return ($"{__volume},{__book} {__chapter}:{__startVerse}; {__text}");
+        return string.Format("{0},{1},{2}:{3}",__volume, __book, __chapter, __startVerse);
     }
     public string GetScripturetwoVerse()
     {
 
-        return ($"{__volume},{__book} {__chapter}:{__startVerse}-{__endVerse}; {__text}");
+        return string.Format("{0},{1},{2}:{3}-{4}", __volume, __book, __chapter, __startVerse,__endVerse);
     }
 }
