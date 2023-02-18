@@ -52,7 +52,7 @@ class Choices
 
                 string userInput = "";
 
-                while (userInput != "quit" && scriptureMemorizer.hasWordsLeft() == true)
+                while (userInput !="quit" && scriptureMemorizer.hasWordsLeft() == true)
                 {
                     Console.Clear();
                     Console.WriteLine(string.Format("{0} {1}", scriptureReference.GetScriptureoneVerse(), scriptureMemorizer.toString()));
