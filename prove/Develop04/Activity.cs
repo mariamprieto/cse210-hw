@@ -36,7 +36,7 @@ public class Activity{
         SetTime(Int32.Parse(Console.ReadLine()));
     }
 
-    protected void GetReady()
+    public void GetReady()
     {
         Console.Clear();
         Console.Write("Get Ready...");
@@ -44,7 +44,7 @@ public class Activity{
         Console.WriteLine();
     }
 
-    protected void Spinner(int count)
+    public void Spinner(int count)
 
         { 
         while (count > 0)
@@ -81,7 +81,7 @@ public class Activity{
         }
     }
 
-    protected void EndMessage()
+    public void EndMessage()
     {
         Console.WriteLine();
         Console.WriteLine("Well done!");
