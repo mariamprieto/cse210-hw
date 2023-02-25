@@ -3,6 +3,15 @@ using System;
 public class Listing : Activity
 {
     private List<string> __questions = new List<string>();
+    private List<string> __answers = new List<string>();
+   
+    public Listing(string activity, string description) : base(activity, description)
+    {
+        Questions();
+        base.StartMessage();
+        StartActivity();
+    }
+
     private void Questions()
     {
         __questions.Add("Who are people that you appreciate?");
@@ -11,16 +20,6 @@ public class Listing : Activity
         __questions.Add("When have you felt the Holy Ghost this month?");
         __questions.Add("Who are some of your personal heroes?");
     }
-
-    private List<string> __answers = new List<string>();
-
-    public Listing(string activity, string description) : base(activity, description)
-    {
-        Questions();
-        base.StartMessage();
-        StartActivity();
-    }
-
     private string RandomPrompt()
     {
         Random random = new Random();

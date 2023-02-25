@@ -6,6 +6,15 @@ public class Reflection : Activity
     private List<string> __questions = new List<string>();
     private int __numQuestions;
 
+    public Reflection(string activity, string description) : base(activity, description)
+    {
+        ListReflection();
+        QuestionsReflection();
+        base.StartMessage();
+        __numQuestions = base.GetTime() / 10;
+        StartActivity();
+    }
+
     private void ListReflection()
     {
         __startMessage.Add("Think of a time when you stood up for someone else.");
@@ -26,16 +35,6 @@ public class Reflection : Activity
         __questions.Add("What did you learn about yourself through this experience?");
         __questions.Add("How can you keep this experience in mind in the future?");
     }
-
-    public Reflection(string activity, string description) : base(activity, description)
-    {
-        ListReflection();
-        QuestionsReflection();
-        base.StartMessage();
-        __numQuestions = base.GetTime() / 10;
-        StartActivity();
-    }
-
     private string RandomStart()
     {
         Random random = new Random();
