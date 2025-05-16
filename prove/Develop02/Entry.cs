@@ -14,7 +14,7 @@ public class Entry
     public string GetDisplayText()
     {
 
-        return $"{_date}:-Prompt:{_prompts}\n {_response}\n";
+        return $"{_date}:-Prompt:{_prompts} {_response}";
     }
     //Method that indicates the format in which the journal will be saved, separated by a comma
     public string SaveText()

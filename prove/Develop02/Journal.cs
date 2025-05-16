@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO; 
 
-public class Journal()
+public class Journal
 {
     //List that saves the entire journal
     private List<Entry> _entries = new List<Entry>();
@@ -28,7 +28,7 @@ public class Journal()
         Entry newEntry = new Entry
         {
             _date = _date,
-            _prompt = _prompt,
+            _prompts = _prompt,
             _response = _response
 
         };
@@ -37,13 +37,20 @@ public class Journal()
     }
     public void DisplayRecord()
     {
+         if (_entries.Count == 0)
+    {
+        Console.WriteLine("No journal entries found.");
+        Console.WriteLine("Please load a file or start writing a new entry.");
+    }
+    else
+    {
         foreach (Entry entry in _entries)
         {
             Console.WriteLine(entry.GetDisplayText());
         }
     }
-
-    public void SaveFile(string filemane)
+}
+    public void SaveFile()
     {
         Console.WriteLine("Write a filename to save: ");
         string filename = Console.ReadLine();

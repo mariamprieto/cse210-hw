@@ -6,10 +6,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        
+
         Journal journal = new Journal();
         Quit quit = new Quit();
         int selection = -1;
+        Console.WriteLine("Welcome to the Journal Program!\n");
 
         while (selection != 5)
         {
@@ -50,8 +51,8 @@ class Program
     }
     public static int DisplayMenu()
     {
-        Console.WriteLine("Welcometo the Journal Program!\n Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Save\n 4. Load \n 5. Quit");
-        Console.WriteLine(" What do you like to do? : ");
+        Console.WriteLine(" \n---------------------\n Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Save\n 4. Load \n 5. Quit");
+        Console.WriteLine(" What do you like to do?");
         string _choice = Console.ReadLine();
         
 
