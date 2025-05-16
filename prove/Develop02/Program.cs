@@ -6,12 +6,14 @@ class Program
 {
     static void Main(string[] args)
     {
-
+        // Create instances of Journal and Quit classes
         Journal journal = new Journal();
         Quit quit = new Quit();
-        int selection = -1;
-        Console.WriteLine("Welcome to the Journal Program!\n");
 
+        int selection = -1;
+        //Displays the welcome message
+        Console.WriteLine("Welcome to the Journal Program!\n");
+        // Loop that keeps showing the menu until the user selects "5" to quit
         while (selection != 5)
         {
             selection = DisplayMenu();
@@ -49,25 +51,26 @@ class Program
 
 
     }
+    // Method to display the menu
     public static int DisplayMenu()
     {
         Console.WriteLine(" \n---------------------\n Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Save\n 4. Load \n 5. Quit");
         Console.WriteLine(" What do you like to do?");
         string _choice = Console.ReadLine();
-        
+
 
         if (_choice == "1" || _choice == "2" || _choice == "3" || _choice == "4" || _choice == "5")
         {
             return int.Parse(_choice);
         }
-       
+
         else
         {
             Console.WriteLine("Invalid options");
             return -1;
         }
-        
-     }
+
+    }
 
 
 }

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO; 
+using System.IO;
 
 public class Journal
 {
@@ -35,21 +35,27 @@ public class Journal
         _entries.Add(newEntry);
 
     }
-    public void DisplayRecord()
+
+    /**This method returns the journal (prompt and response) stored by the user. 
+    If nothing has been written or downloaded, a warning message will be given**/
+        public void DisplayRecord()
     {
-         if (_entries.Count == 0)
-    {
-        Console.WriteLine("No journal entries found.");
-        Console.WriteLine("Please load a file or start writing a new entry.");
-    }
-    else
-    {
-        foreach (Entry entry in _entries)
+        if (_entries.Count == 0)
         {
-            Console.WriteLine(entry.GetDisplayText());
+            Console.WriteLine("No journal entries found.");
+            Console.WriteLine("Please load a file or start writing a new entry.");
+        }
+        else
+        {
+            foreach (Entry entry in _entries)
+            {
+                Console.WriteLine(entry.GetDisplayText());
+            }
         }
     }
-}
+
+    /**Method that will save the journal according to the instructions given in the entry class
+     using the saveText method**/
     public void SaveFile()
     {
         Console.WriteLine("Write a filename to save: ");
@@ -63,9 +69,11 @@ public class Journal
         }
         Console.WriteLine("Journal saved successfully");
     }
-
+/**This method downloads the file saved by the user later and 
+reads it considering the parameters set in the Entry class ReadFile method*/
     public void LoadFile()
-    {Console.Write("Enter filename to load: ");
+    {
+        Console.Write("Enter filename to load: ");
         string filename = Console.ReadLine();
 
         if (File.Exists(filename))
@@ -85,6 +93,6 @@ public class Journal
         {
             Console.WriteLine(" File not found.");
         }
-        
+
     }
 }
