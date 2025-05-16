@@ -4,11 +4,11 @@ using System.Collections.Generic;
 public class Entry
 {
     //Stores the question show the user.
-    string _prompts;
+    public string _prompts;
     //Stores the date 
-    string _date;
+    public string _date;
     //Stores the answer from user
-    string _response;
+    public string _response;
 
     //Method that indicates the format in which the journal will be displayed in the console.
     public string GetDisplayText()
