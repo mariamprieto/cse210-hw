@@ -6,6 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        
         Journal journal = new Journal();
         Quit quit = new Quit();
         int selection = -1;
