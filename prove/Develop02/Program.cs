@@ -52,12 +52,13 @@ class Program
         Console.WriteLine("Welcometo the Journal Program!\n Please select one of the following choices: \n 1. Write \n 2. Display \n 3. Save\n 4. Load \n 5. Quit");
         Console.WriteLine(" What do you like to do? : ");
         string _choice = Console.ReadLine();
-        int _selection = int.Parse(_choice);
+        
 
-        if (_selection == 1 || _selection== 2 || _selection== 3 || _selection== 4 || _selection== 5)
+        if (_choice == "1" || _choice == "2" || _choice == "3" || _choice == "4" || _choice == "5")
         {
-            return _selection;
+            return int.Parse(_choice);
         }
+       
         else
         {
             Console.WriteLine("Invalid options");
