@@ -14,9 +14,9 @@ public class Scripture
 
     }
 
-    public Scripture(string _reference, string _text) {
-        _reference = _reference;
-        _text = _text;
+    public Scripture(string reference, string text) {
+        reference = _reference;
+        text = _words;
 
     }
    
