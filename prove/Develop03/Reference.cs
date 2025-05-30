@@ -3,12 +3,13 @@ using System.Collections.Generic;
 
 public class Reference
 {
+    // Stores the book, chapter, and verses
     private string _book;
     private int _chapter;
     private int _startVerse;
     private int _endVerse;
 
-
+    // Constructor for a single verse
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -17,6 +18,7 @@ public class Reference
         _endVerse= verse;
     }
 
+    // Constructor for a verse range
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
         _book = book;
@@ -24,6 +26,9 @@ public class Reference
         _startVerse = startVerse;
         _endVerse = endVerse;
     }
+
+    
+    // Return the reference in displayable format
     public string GetDisplayReference()
     {
         if (_startVerse == _endVerse)
