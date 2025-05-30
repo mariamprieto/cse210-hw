@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
+
 
 public class Scripture
 {
@@ -36,10 +36,10 @@ public class Scripture
 
         }
 
-        int _toHide = Math.Max(count, _visible);
+        int _toHide = Math.Min(count, _visible);
         int hidden = 0;
 
-        while (hidden < count)
+        while (hidden < _toHide)
         {
             int index = _random.Next(_words.Count);
             if (!_words[index].isBlanked())
