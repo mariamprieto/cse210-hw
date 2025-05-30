@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public class Scripture
 {
@@ -24,6 +25,18 @@ public class Scripture
     public void RandomHideWords(int count)
     {
 
+        int _visible = 0;
+
+        foreach (var word in _words)
+        {
+            if (!word.isBlanked())
+            {
+                _visible++;
+            }
+
+        }
+
+        int _toHide = Math.Min(count, _visible);
         int hidden = 0;
 
         while (hidden < count)
@@ -36,6 +49,7 @@ public class Scripture
             }
 
         }
+               
     }
 
     public bool WordsHidden()
