@@ -4,23 +4,64 @@ using System.Collections.Generic;
 public class Scripture
 {
     //Attributes that store script references and script text
-    private string _reference;
-    private string _words;
+    private Reference _reference;
+    private List<Word> _words;
+    private Random _random = new Random();
 
-    public Scripture()
+
+    public Scripture(Reference reference, string text)
     {
-        _reference = "Job 1:5";
-        _words = "Si todos ....";
+        _reference = reference;
+        _words = new List<Word>();
+
+        foreach (var word in text.Split(' '))
+        {
+            _words.Add(new Word(word));
+        }
 
     }
 
-    public Scripture(string reference, string text) {
-        reference = _reference;
-        text = _words;
+    public void RandomHideWords(int count)
+    {
+
+        int hidden = 0;
+
+        while (hidden < count)
+        {
+            int index = _random.Next(_words.Count);
+            if (!_words[index].isBlanked())
+            {
+                _words[index].Hide();
+                hidden++;
+            }
+
+        }
+    }
+
+    public bool WordsHidden()
+    {
+        foreach (var word in _words)
+        {
+            if (!word.isBlanked())
+            {
+                return false;
+            }
+        }
+
+
+        return true;
 
     }
-   
-    
+
+    public string GetDisplayScripture()
+    {
+        string display = _reference.GetDisplayReference() + " ";
+        foreach (var word in _words)
+        {
+            display += word.GetDisplayWord() + " ";
+        }
+        return display;
+    }
 
 
 }

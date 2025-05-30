@@ -8,28 +8,32 @@ public class Reference
     private int _startVerse;
     private int _endVerse;
 
-    public Reference()
-    {
-        _book = "Mateo";
-        _chapter = 2;
-        _startVerse = 10;
-        _endVerse = 12;
 
-
-    }
     public Reference(string book, int chapter, int verse)
     {
-        book = _book;
-        chapter = _chapter;
-        verse = _startVerse;
+        _book = book;
+        _chapter = chapter;
+        _startVerse= verse;
+        _endVerse= verse;
     }
 
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        book = _book;
-        chapter = _chapter;
-        startVerse = _startVerse;
-        endVerse = _endVerse;
-     }
+        _book = book;
+        _chapter = chapter;
+        _startVerse = startVerse;
+        _endVerse = endVerse;
+    }
+    public string GetDisplayReference()
+    {
+        if (_startVerse == _endVerse)
+        {
+            return $"{_book} {_chapter}: {_startVerse}";
+        }
+        else
+        {
+            return $"{_book} {_chapter}: {_startVerse}-{_endVerse}";
+        }
+    }
 
 }
