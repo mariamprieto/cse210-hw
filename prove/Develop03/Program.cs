@@ -9,22 +9,25 @@ class Program
 
         Scripture scripture = new Scripture(reference, text);
 
-        while (!scripture.WordsHidden()){
-
-        Console.Clear();
-        Console.WriteLine(scripture.GetDisplayScripture());
-        Console.WriteLine("\n Press enter to continue or type 'quit' to finish:");
-        string input = Console.ReadLine();
-
-        if (input == "quit")
+        while (!scripture.WordsHidden())
         {
-            break;
+
+            Console.Clear();
+            Console.WriteLine(scripture.GetDisplayScripture());
+            Console.WriteLine("\n Press enter to continue or type 'quit' to finish:");
+            string input = Console.ReadLine();
+
+            if (input == "quit")
+            {
+                break;
             }
 
 
-        scripture.RandomHideWords(3);
+            scripture.RandomHideWords(3);
 
-    }
+        }
+        Console.Clear();
+        Console.WriteLine("Memorized Complete, try again with other scripture");
 
    } 
 }
