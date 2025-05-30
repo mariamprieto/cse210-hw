@@ -36,7 +36,7 @@ public class Scripture
 
         }
 
-        int _toHide = Math.Min(count, _visible);
+        int _toHide = Math.Max(count, _visible);
         int hidden = 0;
 
         while (hidden < count)
