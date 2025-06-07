@@ -4,8 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
+        /*This program allows the user to select
+        how many words to hide at a time (1, 2, or 3), giving more control over the memorization speed.*/
 
-        // Menu to select the memorization speed
+       //Menu to select the memorization speed
         Console.Clear();
         Console.WriteLine("=== Welcome to Scripture Memorizer ===\n");
         Console.WriteLine("Choose your memorization speed:");
