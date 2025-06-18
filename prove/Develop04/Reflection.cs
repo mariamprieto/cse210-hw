@@ -14,8 +14,10 @@ public class ReflectionActivity : Activity
         SetActivity(name, description);
 
         Console.Write("How long, in seconds would you likefor your session?:");
-        _duration = int.Parse(Console.ReadLine());
-
+        int duration = int.Parse(Console.ReadLine());
+        SetDuration(duration);
 
     }
+
+    
 }

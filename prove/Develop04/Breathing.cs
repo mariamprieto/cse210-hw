@@ -11,14 +11,16 @@ public class BreathingActivity : Activity
         SetActivity(name, description);
 
         Console.Write("How long, in seconds would you likefor your session?:");
-        _duration = int.Parse(Console.ReadLine());
+        int duration = int.Parse(Console.ReadLine());
+        SetDuration(duration);
     }
 
     public void DoBreathingActivity()
     {
         DisplayStartingMessage();
-        int interval = 0;
-        int cycles = _duration / interval;
+        int interval = 6;
+        int seconds = GetDuration();
+        int cycles = seconds / interval;
         for (int i = 0; i < cycles; i++)
         {
             Console.Write("Get ready...");

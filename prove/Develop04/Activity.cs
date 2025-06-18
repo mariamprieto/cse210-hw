@@ -21,6 +21,16 @@ public class Activity
         _description = description;
     }
 
+    public void SetDuration(int duration)
+    {
+        _duration = duration;
+    }
+
+    public int GetDuration()
+    {
+        return _duration;
+    }
+
     public void DisplayStartingMessage()
 
 
