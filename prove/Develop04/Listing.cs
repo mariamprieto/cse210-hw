@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 public class ListingActivity : Activity
 {
@@ -29,6 +30,21 @@ public class ListingActivity : Activity
 
     }
 
+
+    public void DoListingActivity()
+    {
+        DisplayStartingMessage();
+
+        string prompt = GetRandomPrompt();
+        Console.Write("Get ready...");
+        Console.WriteLine();
+        Console.WriteLine("List as many responses you can to the following prompt:");
+        Console.WriteLine($"------{prompt}------");
+        Console.Write("You may begin in: ");
+        PauseWithCountdown(5);
+
+        DisplayEndingMessage();
+    }
     public string GetRandomPrompt()
     {
         Random _random = new Random();
@@ -48,5 +64,5 @@ public class ListingActivity : Activity
         }
         return count;
 
-}
+    }
 }
