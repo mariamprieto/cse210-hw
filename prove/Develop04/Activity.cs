@@ -36,7 +36,7 @@ public class Activity
 
     {
         Console.Clear();
-        Console.WriteLine($"Welcome to {_name}/n {_description}/n");
+        Console.WriteLine($"Welcome to {_name}\n{_description}\n");
 
     }
 
@@ -44,7 +44,7 @@ public class Activity
 
 
     {
-        Console.Write($"Well done! /n Thanks for your time, You finished  the {_name} activity for {_duration} seconds");
+        Console.Write($"\nWell done!\nThanks for your time, You finished  the {_name} for {_duration} seconds");
 
     }
 
@@ -57,17 +57,21 @@ public class Activity
             Thread.Sleep(500);
 
             Console.Write("\b");
+            Console.Write("\b");
+            
+
+            
         }
-
-
-
+            Console.Write(" ");
+            Console.Write("\b");
+        
     }
     public void PauseWithCountdown(int seconds)
     {
         for (int i = seconds;i>0; i--)
         {
             Console.Write(i);
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
 
             Console.Write("\b \b");
         }

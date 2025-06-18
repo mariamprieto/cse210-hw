@@ -24,9 +24,7 @@ public class ListingActivity : Activity
 
         SetActivity(name, description);
 
-        Console.Write("How long, in seconds would you likefor your session?:");
-        int duration = int.Parse(Console.ReadLine());
-        SetDuration(duration);
+
 
     }
 
@@ -35,13 +33,24 @@ public class ListingActivity : Activity
     {
         DisplayStartingMessage();
 
-        string prompt = GetRandomPrompt();
+        Console.Write("How long, in seconds would you like for your session?:");
+        int duration = int.Parse(Console.ReadLine());
+        SetDuration(duration);
+        Console.Clear();
         Console.Write("Get ready...");
+        Console.WriteLine();
+        PauseWithSpinner(5);
+        Console.WriteLine();
+
+        string prompt = GetRandomPrompt();
+
         Console.WriteLine();
         Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine($"------{prompt}------");
         Console.Write("You may begin in: ");
         PauseWithCountdown(5);
+        int responses = CountUserResponses(GetDuration());
+        Console.WriteLine($"\nYou listed {responses} items!");
 
         DisplayEndingMessage();
     }
@@ -54,11 +63,11 @@ public class ListingActivity : Activity
     public int CountUserResponses(int duration)
     {
         int count = 0;
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(duration);
-        while (startTime < futureTime)
+        
+        DateTime futureTime = DateTime.Now.AddSeconds(duration);
+        while (DateTime.Now < futureTime)
         {
-            Console.Write(">");
+            Console.Write("\n >");
             Console.ReadLine();
             count++;
         }

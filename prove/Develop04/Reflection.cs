@@ -34,15 +34,24 @@ public class ReflectionActivity : Activity
 
         SetActivity(name, description);
 
-        Console.Write("How long, in seconds would you likefor your session?:");
-        int duration = int.Parse(Console.ReadLine());
-        SetDuration(duration);
+        
 
     }
 
     public void DoReflectionActivity()
     {
         DisplayStartingMessage();
+
+        Console.Write("How long, in seconds would you like for your session?:");
+        int duration = int.Parse(Console.ReadLine());
+        SetDuration(duration);
+        Console.Clear();
+        Console.Write("Get ready...");
+        Console.WriteLine();
+        PauseWithSpinner(5);
+        Console.WriteLine();
+        
+
         DisplayPrompt();
         DisplayReflectionQuestions(GetDuration());
         DisplayEndingMessage();
@@ -65,7 +74,7 @@ public class ReflectionActivity : Activity
     {
         string prompt = GetRandomPrompt();
 
-        Console.Write("Get ready...");
+        
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine();
@@ -76,19 +85,22 @@ public class ReflectionActivity : Activity
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
         PauseWithCountdown(5);
+       
 
     }
     public void DisplayReflectionQuestions(int duration)
     {
-        int count = 0;
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(duration);
-        while (startTime < futureTime)
+       
+        DateTime endTime = DateTime.Now.AddSeconds(duration);
+
+        while (DateTime.Now < endTime)
         {
             string questions = GetRandomQuestions();
-            Console.Write($"> {questions}  ");
-            Console.ReadLine();
-            count++;
+            Console.Write($"\n > {questions}");
+            Console.WriteLine();
+            PauseWithSpinner(5);
+            
+            
         }
 
 

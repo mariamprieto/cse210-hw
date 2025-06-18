@@ -15,7 +15,7 @@ class Program
             Console.WriteLine("2. Start reflecting activity.");
             Console.WriteLine("3. Start listing activity.");
             Console.WriteLine("4. Quit.");
-            Console.WriteLine("Select a choice from the menu: ");
+            Console.Write("Select a choice from the menu:");
             choice = Console.ReadLine();
 
             if (choice == "1")
@@ -35,15 +35,16 @@ class Program
             }
             else if (choice == "4")
             {
-                Console.WriteLine("Thank you for using the Mindfulness Program. Goodbye!");
+                Console.WriteLine("Thank you for using the Mindfulness Program.Goodbye!");
+                break;
             }
             else
             {
-                Console.WriteLine("Invalid option. Press enter to try again.");
-                Console.ReadLine();
+                Console.WriteLine("Invalid option.");
+                
 
             }
-            Console.WriteLine("\n Press enterto return to menu.");
+            Console.WriteLine("\nPress enter to return to menu.");
             Console.ReadLine();
 
         }
