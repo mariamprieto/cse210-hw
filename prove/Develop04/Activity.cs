@@ -9,28 +9,33 @@ public class Activity
 
     public Activity()
     {
+        // Default constructor initializes empty values
         _name = " ";
         _description = " ";
         _duration = 0;
 
     }
-
+    
+     // Set the name and description
     public void SetActivity(string name, string description)
     {
         _name = name;
         _description = description;
     }
 
+    // Set the duration
     public void SetDuration(int duration)
     {
         _duration = duration;
     }
 
+    // Get the duration
     public int GetDuration()
     {
         return _duration;
     }
 
+    // Display starting message
     public void DisplayStartingMessage()
 
 
@@ -40,6 +45,7 @@ public class Activity
 
     }
 
+    // Display ending message
     public void DisplayEndingMessage()
 
 
@@ -48,6 +54,7 @@ public class Activity
 
     }
 
+    // Show spinner animation for a given time
     public void PauseWithSpinner(int seconds)
     {
         string[] _spinner = { "|", "/", "-", "\\" };
@@ -58,17 +65,19 @@ public class Activity
 
             Console.Write("\b");
             Console.Write("\b");
-            
 
-            
+
+
         }
-            Console.Write(" ");
-            Console.Write("\b");
-        
+        Console.Write(" ");
+        Console.Write("\b");
+
     }
+
+    // // Count down from the given number to 1
     public void PauseWithCountdown(int seconds)
     {
-        for (int i = seconds;i>0; i--)
+        for (int i = seconds; i > 0; i--)
         {
             Console.Write(i);
             Thread.Sleep(1500);
@@ -76,7 +85,7 @@ public class Activity
             Console.Write("\b \b");
         }
 
-        
+
     }
 
 
