@@ -1,11 +1,18 @@
 using System;
 using System.Runtime.CompilerServices;
 
+/*
+This program goes beyond the basic requirements by defining common methods, such as SetActivity and SetDuration, 
+in the base Activity class and then reusing them in the derived classes (BreathingActivity, ReflectionActivity, and ListingActivity). 
+
+An animated display was also added to help the user connect more deeply with each activity, creating a more engaging and mindful experience. 
+Additionally, alerts were included to handle invalid menu options, improving user interaction and preventing errors.
+*/
 class Program
 {
     static void Main(string[] args)
     {
-         // Variable to store user's menu selection
+        // Variable to store user's menu selection
         string choice = "";
 
         // Loop until the user chooses to quit
@@ -46,7 +53,7 @@ class Program
             }
             else
             {
-                 // Handle invalid input
+                // Handle invalid input
                 Console.WriteLine("Invalid option.");
 
 
