@@ -91,7 +91,7 @@ public class Goal
         }
         else
         {
-            return $"([ ] {_name} )";
+            return $"([ ] {_name} ({_description}) )";
         }
     }
 

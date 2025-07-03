@@ -35,7 +35,7 @@ public class SimpleGoal : Goal
         }
         else
         {
-            return (_isCompleted ? "[X]" : "[ ]") + $"{GetName()}";
+            return (_isCompleted ? "[X]" : "[ ]") + $" {GetName()} ({GetDescription()})";
         }
         
     }

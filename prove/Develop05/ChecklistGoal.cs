@@ -50,7 +50,7 @@ public class ChecklistGoal : Goal
         }
         else
         {
-            return $"[{(IsComplete() ? "X" : " ")}]{GetName()}--Completed {_currentCount}/{_requiredCount}";
+            return $"[{(IsComplete() ? "X" : " ")}] {GetName()} ({GetDescription()})--Completed {_currentCount}/{_requiredCount}";
         }
         
     }

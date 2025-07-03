@@ -24,7 +24,7 @@ public class EternalGoal : Goal
         }
         else
         {
-            return $"[ ]{GetName()}";
+            return $"[ ] {GetName()} ({GetDescription()})";
         }
         
     }
