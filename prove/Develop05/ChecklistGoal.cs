@@ -57,7 +57,7 @@ public class ChecklistGoal : Goal
 
     public override string GetFile()
     {
-        return $"Checklist Goal:{GetName()}, {GetDescription()}, {GetPoints()},{_bonusPoints},{_requiredCount},{_currentCount}";
+        return $"Checklist Goal:{GetName()}, {GetDescription()}, {GetPoints()}, {GetIsDeleted()}, {GetDeleteReason()}, {_bonusPoints},{_requiredCount},{_currentCount}";
     }
 
 }
