@@ -1,9 +1,10 @@
 using System;
 
-
+// Base class Goal: defines common attributes for all goals
 public class Goal
 {
-
+    // Attributes to store the goal's name, description, assigned points, 
+    // and (if deleted) the reason provided by the user
     private string _name;
 
     private string _description;
@@ -12,9 +13,9 @@ public class Goal
     private bool _isDeleted = false;
     private string _deleteReason = " ";
 
-    
 
 
+    // Basic getter and setter methods
     public string GetName()
     {
         return _name;
@@ -30,7 +31,7 @@ public class Goal
         return _description;
     }
 
-    public void SetDescription (string description)
+    public void SetDescription(string description)
     {
         _description = description;
 
@@ -41,12 +42,13 @@ public class Goal
         return _points;
     }
 
-    public void SetPoints (int points)
+    public void SetPoints(int points)
     {
         _points = points;
 
     }
 
+    // Method to mark the goal as deleted and set a reason
     public bool GetIsDeleted()
     {
         return _isDeleted;
@@ -63,6 +65,7 @@ public class Goal
         _deleteReason = deleteReason;
     }
 
+    // Base constructor
     public Goal(string name, string description, int points)
     {
         _name = name;
@@ -71,8 +74,9 @@ public class Goal
 
 
     }
-    
 
+    // Virtual methods that will be inherited and customized by child classes;
+    // used to update and store progress when recording achieved goals
 
     public virtual int RecordEvent()
     {
@@ -83,6 +87,7 @@ public class Goal
         return true;
     }
 
+    // Display goal status (includes deleted state if applicable)
     public virtual string GetStatus()
     {
         if (_isDeleted)
@@ -94,7 +99,7 @@ public class Goal
             return $"([ ] {_name} ({_description}) )";
         }
     }
-
+    // Save goal information to file
     public virtual string GetFile()
     {
         return $"{_name}, {_description}, {_points}, {_isDeleted}, {_deleteReason}";

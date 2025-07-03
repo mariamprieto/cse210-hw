@@ -4,13 +4,20 @@ using System.ComponentModel;
 using System.IO;
 
 
-
+/*
+GoalMenu: manages the main program flow
+- Allows creating, listing, saving, loading, recording events, and deleting goals
+- "Delete Goal" option was included to help the user correct mistakes (wrong points, typos, or changing goals)
+- When deleting, a reason is saved to maintain traceability
+*/
 public class GoalMenu
 {
 
-    private List<Goal> _goals = new List<Goal>();
-    private int _totalScore;
+    //Atributes
+    private List<Goal> _goals = new List<Goal>();//list to store all goals
+    private int _totalScore;//stores the user's total accumulated points
 
+    //Method that displays and handles the main menu options
     public void Menu()
     {
         int _option = 0;
@@ -65,6 +72,7 @@ public class GoalMenu
             }
         }
     }
+    //Method that allows the user to create different types of goals
     public void CreateGoal()
     {
         Console.WriteLine("The types of Goals are:");
@@ -101,7 +109,7 @@ public class GoalMenu
         }
     }
 
-
+    //Displays all goals and their current status
     public void ListGoals()
     {
         Console.WriteLine("The goals are:");
@@ -112,6 +120,8 @@ public class GoalMenu
             i++;
         }
     }
+
+    //Saves goals and score to a file
     public void SaveGoals()
     {
         Console.WriteLine("What is the filename for the goal file?:");
@@ -128,7 +138,7 @@ public class GoalMenu
         }
     }
 
-
+    //Loads goals and score from a file
     public void LoadGoals()
     {
         Console.Write("What is the filename for the goal file?");
@@ -200,6 +210,7 @@ public class GoalMenu
 
     }
 
+    //Records progress on an active goal and updates score
     public void RecordEvent()
     {
         Console.WriteLine("The goals are:");
@@ -240,6 +251,8 @@ public class GoalMenu
             }
         }
     }
+
+    //Marks a goal as deleted and saves a reason for traceability
     public void DeleteGoal()
     {
         Console.WriteLine("The goals are:");
@@ -272,6 +285,7 @@ public class GoalMenu
 
         }
     }
+    //Returns the current total score
     public int GetTotalScore()
     {
         return _totalScore;
