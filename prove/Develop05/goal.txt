@@ -1,6 +1,5 @@
-3000
-Simple Goal: Get First Certificate from BYUI., Finish all course this semester to get my first certificate., 1000,False
-Eternal Goal:Go to the temple, Visit the temple at least one day everyweek., 1500
-Checklist Goal:Do exercises, I need to do exercises at least 4 day per week, 800,600,4,1
-Simple Goal: Prepare my CV in English, I need to improve my CV to look for a good job., 700,True
-Eternal Goal:Get a good job, I need to find a good job, 2000
+4500
+Simple Goal: Prepare my CV, Preparation of my CV to look for a new job., 500, False,  , True
+Eternal Goal:Go to the temple, Visit the temple at least 1 day per week., 1000, False,  
+Checklist Goal:Do exercises, Doing exercises at least 4 days per week., 500, True, Error in point, 1000,1000,0
+Checklist Goal:Doing exercises, Doing exercises at least 4 per week., 500, False,  , 1000,4,4
