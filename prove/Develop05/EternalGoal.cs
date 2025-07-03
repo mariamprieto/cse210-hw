@@ -31,7 +31,7 @@ public class EternalGoal : Goal
 
     public override string GetFile()
     {
-         return $"Eternal Goal:{GetName()}, {GetDescription()}, {GetPoints()}";
+         return $"Eternal Goal:{GetName()}, {GetDescription()}, {GetPoints()}, {GetIsDeleted()}, {GetDeleteReason()}";
     }
 
 }

@@ -97,7 +97,7 @@ public class Goal
 
     public virtual string GetFile()
     {
-        return $"{_name}, {_description}, {_points}";
+        return $"{_name}, {_description}, {_points}, {_isDeleted}, {_deleteReason}";
     }
 
 }

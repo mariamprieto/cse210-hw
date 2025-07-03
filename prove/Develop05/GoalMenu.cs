@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 
 
@@ -148,26 +149,46 @@ public class GoalMenu
                 string name = details[0].Trim();
                 string description = details[1].Trim();
                 int points = int.Parse(details[2].Trim());
+                bool isDeleted = bool.Parse(details[3].Trim());
+                string deleteReason = details[4].Trim();
 
                 if (type == "Simple Goal")
                 {
-                    bool isCompleted = details[3].Trim().ToLower() == "true";
-                    _goals.Add(new SimpleGoal(name, description, points, isCompleted));
+                    bool isCompleted = bool.Parse(details[5].Trim());
+                    SimpleGoal goal = new SimpleGoal(name, description, points, isCompleted);
+                    if (isDeleted)
+                    {
+                        goal.SetIsDeleted(deleteReason);
+
+                    }
+                    _goals.Add(goal);
                 }
+
 
                 else if (type == "Eternal Goal")
                 {
-                    _goals.Add(new EternalGoal(name, description, points));
+                    EternalGoal goal = new EternalGoal(name, description, points);
+                    if (isDeleted)
+                    {
+                        goal.SetIsDeleted(deleteReason);
+
+                    }
+                    _goals.Add(goal);
                 }
                 else if (type == "Checklist Goal")
                 {
-                    int bonusPoints = int.Parse(details[3].Trim());
-                    int requiredCount = int.Parse(details[4].Trim());
-                    int currentCount = int.Parse(details[5].Trim());
+                    int bonusPoints = int.Parse(details[5].Trim());
+                    int requiredCount = int.Parse(details[6].Trim());
+                    int currentCount = int.Parse(details[7].Trim());
 
-                    ChecklistGoal checklist = new ChecklistGoal(name, description, points, requiredCount, bonusPoints);
-                    checklist.SetCurrentCount(currentCount);
-                    _goals.Add(checklist);
+                    ChecklistGoal goal = new ChecklistGoal(name, description, points, requiredCount, bonusPoints);
+                    goal.SetCurrentCount(currentCount);
+                    if (isDeleted)
+                    {
+                        goal.SetIsDeleted(deleteReason);
+
+                    }
+                    _goals.Add(goal);
 
                 }
             }
@@ -182,9 +203,23 @@ public class GoalMenu
     public void RecordEvent()
     {
         Console.WriteLine("The goals are:");
+        List<Goal> activeGoals = new List<Goal>();
+
         for (int i = 0; i < _goals.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+            if (!_goals[i].GetIsDeleted() && !_goals[i].IsComplete())
+            {
+
+                activeGoals.Add(_goals[i]);
+                Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+            }
+
+        }
+
+        if (activeGoals.Count == 0)
+        {
+            Console.WriteLine("There are no active goals to record");
+            return;
         }
         Console.Write("Which goal did you accomplish?");
 

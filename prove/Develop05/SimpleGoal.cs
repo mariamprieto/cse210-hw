@@ -42,7 +42,7 @@ public class SimpleGoal : Goal
 
     public override string GetFile()
     {
-        return $"Simple Goal: {GetName()}, {GetDescription()}, {GetPoints()},{_isCompleted}";
+        return $"Simple Goal: {GetName()}, {GetDescription()}, {GetPoints()}, {GetIsDeleted()}, {GetDeleteReason()}, {_isCompleted}";
     }
 }
 
