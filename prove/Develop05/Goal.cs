@@ -9,6 +9,11 @@ public class Goal
     private string _description;
     private int _points;
 
+    private bool _isDeleted = false;
+    private string _deleteReason = " ";
+
+    
+
 
     public string GetName()
     {
@@ -42,6 +47,22 @@ public class Goal
 
     }
 
+    public bool GetIsDeleted()
+    {
+        return _isDeleted;
+    }
+
+    public string GetDeleteReason()
+    {
+        return _deleteReason;
+    }
+
+    public void SetIsDeleted(string deleteReason)
+    {
+        _isDeleted = true;
+        _deleteReason = deleteReason;
+    }
+
     public Goal(string name, string description, int points)
     {
         _name = name;
@@ -50,7 +71,10 @@ public class Goal
 
 
     }
-    public virtual int RecordEvent ()
+    
+
+
+    public virtual int RecordEvent()
     {
         return _points;
     }
@@ -61,7 +85,14 @@ public class Goal
 
     public virtual string GetStatus()
     {
-        return $"[ ] {_name}";
+        if (_isDeleted)
+        {
+            return $"([Goal Deleted] {_name} (Reason: {_deleteReason}))";
+        }
+        else
+        {
+            return $"([ ] {_name} )";
+        }
     }
 
     public virtual string GetFile()

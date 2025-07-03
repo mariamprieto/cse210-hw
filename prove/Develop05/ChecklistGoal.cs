@@ -43,7 +43,16 @@ public class ChecklistGoal : Goal
 
     public override string GetStatus()
     {
-        return $"[{(IsComplete() ? "X" : " ")}]{GetName()}--Completed {_currentCount}/{_requiredCount}";
+
+        if (GetIsDeleted())
+        {
+            return $"([Goal Deleted] {GetName()} (Reason: {GetDeleteReason()}))";
+        }
+        else
+        {
+            return $"[{(IsComplete() ? "X" : " ")}]{GetName()}--Completed {_currentCount}/{_requiredCount}";
+        }
+        
     }
 
     public override string GetFile()

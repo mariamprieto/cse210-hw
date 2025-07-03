@@ -18,7 +18,15 @@ public class EternalGoal : Goal
 
     public override string GetStatus()
     {
-        return $"[ ]{GetName()}";
+        if (GetIsDeleted())
+        {
+            return $"([Goal Deleted] {GetName()} (Reason: {GetDeleteReason()}))";
+        }
+        else
+        {
+            return $"[ ]{GetName()}";
+        }
+        
     }
 
     public override string GetFile()

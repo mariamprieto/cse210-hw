@@ -28,7 +28,16 @@ public class SimpleGoal : Goal
 
     public override string GetStatus()
     {
-        return (_isCompleted ? "[X]" : "[ ]") + $"{GetName()}";
+
+        if (GetIsDeleted())
+        {
+            return $"([Goal Deleted] {GetName()} (Reason: {GetDeleteReason()}))";
+        }
+        else
+        {
+            return (_isCompleted ? "[X]" : "[ ]") + $"{GetName()}";
+        }
+        
     }
 
     public override string GetFile()

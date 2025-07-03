@@ -23,14 +23,15 @@ public class GoalMenu
             Console.WriteLine("3-Save Goals");
             Console.WriteLine("4-Load Goals");
             Console.WriteLine("5-Record Event");
-            Console.WriteLine("6-Quit");
+            Console.WriteLine("6-Delete Goal");
+            Console.WriteLine("7-Quit");
             Console.WriteLine("Select a choice from the menu:");
             _option = int.Parse(Console.ReadLine());
 
             if (_option == 1)
             {
                 CreateGoal();
-                
+
             }
             else if (_option == 2)
             {
@@ -49,6 +50,10 @@ public class GoalMenu
                 RecordEvent();
             }
             else if (_option == 6)
+            {
+                DeleteGoal();
+            }
+            else if (_option == 7)
             {
                 Console.WriteLine("Goodbye");
                 break;
@@ -85,7 +90,7 @@ public class GoalMenu
         }
         if (type == 3)
         {
-            Console.Write("How many times does this goal need to be accomplished foa a bonus?");
+            Console.Write("How many times does this goal need to be accomplished for a bonus?");
             int requiredCount = int.Parse(Console.ReadLine());
             Console.Write("What is the bonus for accomplishing it that many times?");
             int bonusPoints = int.Parse(Console.ReadLine());
@@ -176,10 +181,10 @@ public class GoalMenu
 
     public void RecordEvent()
     {
-        Console.Write("The goals are:");
+        Console.WriteLine("The goals are:");
         for (int i = 0; i < _goals.Count; i++)
         {
-            Console.Write($"{i + 1}. {_goals[i].GetName()}");
+            Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
         }
         Console.Write("Which goal did you accomplish?");
         int results = int.Parse(Console.ReadLine());
@@ -197,7 +202,29 @@ public class GoalMenu
         }
 
     }
+    public void DeleteGoal()
+    {
+        Console.WriteLine("The goals are:");
+        for (int i = 0; i < _goals.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
+        }
+        Console.Write("Which goal do yo want to delete?");
+        if (int.TryParse(Console.ReadLine(), out int results))
+        {
+            results -= 1;
+            if (results >= 0 && results < _goals.Count)
+            {
 
+                Console.WriteLine("Why do you want to delete this goal?");
+                string deleteReason = Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Invalid goal selections");
+            }
+        }
+    }
     public int GetTotalScore()
     {
         return _totalScore;
