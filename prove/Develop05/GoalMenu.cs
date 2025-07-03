@@ -13,7 +13,7 @@ public class GoalMenu
     public void Menu()
     {
         int _option = 0;
-        while (_option != 6)
+        while (_option != 7)
         {
             Console.WriteLine();
             Console.WriteLine($"You have {_totalScore} points.");
@@ -187,20 +187,23 @@ public class GoalMenu
             Console.WriteLine($"{i + 1}. {_goals[i].GetName()}");
         }
         Console.Write("Which goal did you accomplish?");
-        int results = int.Parse(Console.ReadLine());
 
-        if (results >= 0 && results < _goals.Count)
+        if (int.TryParse(Console.ReadLine(), out int results))
         {
-            int pointsEarned = _goals[results].RecordEvent();
-            _totalScore += pointsEarned;
-            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points");
-            Console.WriteLine($"You now have {_totalScore} points");
-        }
-        else
-        {
-            Console.WriteLine("Invalid goal selections");
-        }
+            results -= 1;
 
+            if (results >= 0 && results < _goals.Count)
+            {
+                int pointsEarned = _goals[results].RecordEvent();
+                _totalScore += pointsEarned;
+                Console.WriteLine($"Congratulations! You have earned {pointsEarned} points");
+                Console.WriteLine($"You now have {_totalScore} points");
+            }
+            else
+            {
+                Console.WriteLine("Invalid goal selections");
+            }
+        }
     }
     public void DeleteGoal()
     {
@@ -218,11 +221,20 @@ public class GoalMenu
 
                 Console.WriteLine("Why do you want to delete this goal?");
                 string deleteReason = Console.ReadLine();
+
+                _goals[results].SetIsDeleted(deleteReason);
+                Console.WriteLine("Goal marked as deleted successfully");
+
             }
             else
             {
                 Console.WriteLine("Invalid goal selections");
             }
+        }
+        else
+        {
+            Console.WriteLine("Invalid input.");
+
         }
     }
     public int GetTotalScore()
