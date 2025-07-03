@@ -7,6 +7,17 @@ public class ChecklistGoal : Goal
 
     private int _bonusPoints;
 
+
+    public int GetCurrentCount()
+    {
+        return _currentCount;
+    }
+
+    public void SetCurrentCount(int currentCount)
+    {
+        _currentCount = currentCount;
+
+    }
     public ChecklistGoal(string name, string description, int points, int requiredCount, int bonuspoints) : base(name, description, points)
     {
         _requiredCount = requiredCount;
@@ -32,12 +43,12 @@ public class ChecklistGoal : Goal
 
     public override string GetStatus()
     {
-        return $"[{(IsComplete()? "X":" ")}]{GetName()}--Completed {_currentCount}/{_requiredCount}";
+        return $"[{(IsComplete() ? "X" : " ")}]{GetName()}--Completed {_currentCount}/{_requiredCount}";
     }
 
     public override string GetFile()
     {
-         return $"Checklist Goal:{GetName()}, {GetDescription()}, {GetPoints()},{_bonusPoints},{_requiredCount},{_currentCount}";
+        return $"Checklist Goal:{GetName()}, {GetDescription()}, {GetPoints()},{_bonusPoints},{_requiredCount},{_currentCount}";
     }
 
 }
