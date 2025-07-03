@@ -29,23 +29,24 @@ public class GoalMenu
 
             if (_option == 1)
             {
-
+                CreateGoal();
+                
             }
             else if (_option == 2)
             {
-
+                ListGoals();
             }
             else if (_option == 3)
             {
-
+                SaveGoals();
             }
             else if (_option == 4)
             {
-
+                LoadGoals();
             }
             else if (_option == 5)
             {
-
+                RecordEvent();
             }
             else if (_option == 6)
             {
