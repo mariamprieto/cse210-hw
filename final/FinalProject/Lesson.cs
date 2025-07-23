@@ -41,7 +41,7 @@ public class Lesson
 
     }
 
-      public List<Activity> GetActivities()
+    public List<Activity> GetActivities()
     {
         return _activities;
 
@@ -104,10 +104,20 @@ public class Lesson
             Console.WriteLine($" {activity.GetName()} - Time: {activity.GetActualTime()} min - Status{activity.GetStatus()} ");
 
         }
-   
+
         Console.WriteLine($"Completed: {_isComplete}");
     }
-
+    public bool IsFullyCompleted()
+    {
+        foreach (Activity activity in _activities)
+        {
+            if (activity.GetStatus().ToLower() != "completed")
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     public void MarkAsCompleted()
     {
         _isComplete = true;

@@ -51,7 +51,7 @@ class Program
                 areaIndex--;
                 AreaStudy selectedArea = areas[areaIndex];
                 string areaName = selectedArea.GetAreaName();
-
+                Console.WriteLine("\n--------------------------------------------");
                 ProgressReport report = null;
 
                 foreach (ProgressReport r in progressReports)
@@ -72,14 +72,22 @@ class Program
                 if (lessonNumber == -1) continue;
 
                 Lesson lesson = selectedArea.GetLessons()[lessonNumber - 1];
-                lesson.ShowMenuActivities();
+                while (!lesson.IsFullyCompleted())
+                {
+                    lesson.ShowMenuActivities();
+                    Console.WriteLine("Enter the activity name to start (Reading, Grammar, Pronunciation):");
+                    string activityName = Console.ReadLine();
+                    lesson.CompleteActivity(activityName);
 
-                Console.WriteLine("Enter the activity name to start (Reading, Grammar, Pronunciation):");
-                string activityName = Console.ReadLine();
-                lesson.CompleteActivity(activityName);
+                    if (!lesson.IsFullyCompleted())
+                    {
+                        Console.WriteLine("\nYou still have pending activities to complete this lesson.");
+                    }
+                }
 
                 lesson.MarkAsCompleted();
                 report.AddLessonResult(lesson);
+                Console.WriteLine("\nLesson completed and saved to progress report.");
             }
             else if (option == "2")
             {
