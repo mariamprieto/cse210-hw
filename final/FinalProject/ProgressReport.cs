@@ -3,6 +3,7 @@ using System;
 public class ProgressReport
 {
 
+
     private string _areaName;
     private List<int> _completedLessons;
     private Dictionary<string, int> _activityTimes;
@@ -135,16 +136,26 @@ public class ProgressReport
 
         Console.WriteLine("Progress report saved successfully.");
     }
-    public static void DisplaySimpleSummary(List<ProgressReport> reports, int lessonsPerArea)
+    public static void DisplaySimpleSummary(List<ProgressReport> reports, int lessonsPerArea, List<AreaStudy> allAreas)
     {
         Console.WriteLine("\n===== Simple Progress Summary =====");
 
-        foreach (ProgressReport report in reports)
+        foreach (AreaStudy area in allAreas)
         {
-            string area = report.GetAreaName();
-            int completed = report.GetCompletedLessons().Count;
+            string areaName = area.GetAreaName();
+            ProgressReport report = null;
 
-            Console.WriteLine($"\n Area: {area}");
+            foreach (ProgressReport r in reports)
+            {
+                if (r.GetAreaName() == areaName)
+                {
+                    report = r;
+                    break;
+                }
+            }
+            int completed = report != null ? report.GetCompletedLessons().Count : 0;
+
+            Console.WriteLine($"\n Area: {areaName}");
             Console.WriteLine($"Lessons completed: {completed} de {lessonsPerArea}");
             Console.WriteLine($"Status: {(completed == lessonsPerArea ? "Completed" : "In progreso")}");
         }
