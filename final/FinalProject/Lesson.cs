@@ -40,6 +40,12 @@ public class Lesson
         return _grammarSentences;
 
     }
+
+      public List<Activity> GetActivities()
+    {
+        return _activities;
+
+    }
     public bool GetIsComplete()
     {
         return _isComplete;

@@ -10,7 +10,7 @@ public class Student
 
     private List<ProgressReport> progress = new List<ProgressReport>();
 
-    Dictionary<string, int> AreaLessonProgress = new Dictionary<string, int>();
+    
 
 
     public string GetName()
@@ -87,84 +87,5 @@ public class Student
     Console.WriteLine($"\nYou selected: {selectedArea.GetAreaName()}");
     }
 
-    public int GetNextLesson(string areaName)
-    {
-
-        int _lessonsTaken = 0;
-
-        if (AreaLessonProgress.ContainsKey(areaName))
-        {
-            _lessonsTaken = AreaLessonProgress[areaName];
-        }
-        if (_lessonsTaken < _lessonPerArea)
-        {
-            _lessonsTaken++;
-            AreaLessonProgress[areaName] = _lessonsTaken;
-            return _lessonsTaken;
-
-        }
-        else
-        {
-            Console.WriteLine("You have completed all lessons for this area!");
-            return _lessonsTaken;
-        }
-
-    }
-
-    public void SaveProgress()
-    {
-        using (StreamWriter writer = new StreamWriter("progress.txt"))
-        {
-            foreach (var entry in AreaLessonProgress)
-            {
-                writer.WriteLine($"{entry.Key}:{entry.Value}");
-            }
-        }
-        Console.WriteLine("Progress saved successfuly");
-    }
-
-    public void LoadProgress()
-    {
-        if (!File.Exists("progress.txt"))
-        {
-            Console.WriteLine("No saved progress found");
-            return;
-
-        }
-
-        AreaLessonProgress.Clear();
-
-        string[] lines = File.ReadAllLines("progress.txt");
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split(":");
-            string area = parts[0];
-            int lessons = int.Parse(parts[1]);
-            AreaLessonProgress[area] = lessons;
-            }
-        Console.WriteLine("Pogress loaded succesfully");
-    }
-
-    public void DisplaySummaryReport()
-    {
-        Console.WriteLine($"\nStudent:{_name}, Age:{_age}");
-        Console.WriteLine("Lesson progress by area: ");
-
-        foreach (var area in AreaLessonProgress)
-        {
-            Console.WriteLine($" -{area.Key}:{area.Value}/{_lessonPerArea} lessons completed");
-
-            if (area.Value == _lessonPerArea)
-            {
-                Console.WriteLine("Completed!");
-            }
-            else
-            {
-                Console.WriteLine("In progress");
-            }
-
-            }
-
-    }
 
 }
