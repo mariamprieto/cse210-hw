@@ -88,11 +88,17 @@ public class Lesson
         {
             if (activity.GetName().ToLower() == activityName.ToLower())
             {
+                if (activity.GetStatus().ToLower() == "completed")
+                {
+                    Console.WriteLine($"The activity \"{activity.GetName()}\" has already been completed.");
+                    return;
+                }
+
                 activity.Start(this);
                 return;
             }
         }
-        Console.WriteLine("Activity no found.");
+        Console.WriteLine("Activity not found.");
     }
 
     public void GenerateLessonReport()
@@ -122,5 +128,7 @@ public class Lesson
     {
         _isComplete = true;
     }
+
+    
 
 }

@@ -109,7 +109,7 @@ public class ProgressReport
     }
     public void SaveToFile(string filename = "your_progress.txt")
     {
-        using (StreamWriter writer = new StreamWriter(filename, true))
+        using (StreamWriter writer = new StreamWriter(filename, false))
         {
             writer.WriteLine($"Area: {_areaName}");
             foreach (int lesson in _completedLessons)
