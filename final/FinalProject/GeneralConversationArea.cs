@@ -3,7 +3,7 @@ using System;
 
 public class GeneralConversationArea : AreaStudy
 {
-    public GeneralConversationArea() : base("GeneralConversation", "Area focused on different conversation vocabulary and topics.")
+    public GeneralConversationArea() : base("General Conversation", "Area focused on different conversation vocabulary and topics.")
 
     {
         GetLessons().Add(new Lesson(

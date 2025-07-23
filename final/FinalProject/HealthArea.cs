@@ -3,7 +3,7 @@ using System;
 
 public class HealthArea : AreaStudy
 {
-    public HealthArea() : base("Business", "Area focused on health vocabulary and topics.")
+    public HealthArea() : base("Health", "Area focused on health vocabulary and topics.")
 
     {
         GetLessons().Add(new Lesson(
