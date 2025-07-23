@@ -3,7 +3,7 @@ using System;
 
 public class TravelArea : AreaStudy
 {
-    public TravelArea() : base("Travel", "")
+    public TravelArea() : base("Travel", "Area focused on travel vocabulary and topics.")
 
     {
         GetLessons().Add(new Lesson(

@@ -42,9 +42,9 @@ public class AreaStudy
 
     public virtual void ShowLessons()
     {
-        foreach (Lesson i in lessons)
+        foreach (Lesson lesson in lessons)
         {
-            Console.WriteLine("Numero de Leccion + Titulo de Leccion + Descripcion");
+            Console.WriteLine($"Lesson: {lesson.GetNumber()} - {lesson.GetTitle} - {lesson.GetDescription()}");
         }
 
     }

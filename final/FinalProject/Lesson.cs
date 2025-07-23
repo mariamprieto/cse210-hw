@@ -13,6 +13,38 @@ public class Lesson
     private List<Activity> _activities;
     private bool _isComplete;
 
+    public int GetNumber()
+    {
+        return _number;
+    }
+    public string GetTitle()
+    {
+        return _title;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public string GetReadingText()
+    {
+        return _readingText;
+    }
+    public List<string> GetPronunciationWords()
+    {
+        return _pronunciationWords;
+
+    }
+    public Dictionary<string, string> GetGrammarSentences()
+    {
+        return _grammarSentences;
+
+    }
+    public bool GetIsComplete()
+    {
+        return _isComplete;
+    }
+
     public Lesson(int number, string title, string description, string readingText, List<string> pronunciationWords, Dictionary<string, string> grammarSentences)
     {
         _number = number;
@@ -30,37 +62,44 @@ public class Lesson
 
     }
 
-    public string GetReadingText()
-    {
-        return _readingText;
-    }
-
-    public List<string> GetPronunciationWords()
-    {
-        return _pronunciationWords;
-
-    }
-    public Dictionary<string, string> GetGrammarSentences()
-    {
-        return _grammarSentences;
-
-    }
 
     public void ShowMenuActivities()
     {
         Console.WriteLine($"Lesson {_number}:{_title}");
-        Console.WriteLine("Choose an activity");
+        Console.WriteLine($"{_description}");
+        Console.WriteLine("Avaliable Activities: ");
+
+        foreach (Activity activity in _activities)
+        {
+            Console.WriteLine($"- {activity.GetName()} {activity.GetStatus()}");
+        }
 
     }
 
     public void CompleteActivity(string activityName)
     {
-
+        foreach (Activity activity in _activities)
+        {
+            if (activity.GetName().ToLower() == activityName.ToLower())
+            {
+                activity.Start(this);
+                return;
+            }
+        }
+        Console.WriteLine("Activity no found.");
     }
 
     public void GenerateLessonReport()
     {
+        Console.WriteLine($"Lesson Report: {_number} : {_title}");
+        foreach (Activity activity in _activities)
+        {
 
+            Console.WriteLine($" {activity.GetName()} - Time: {activity.GetActualTime()} min - Status{activity.GetStatus()} ");
+
+        }
+   
+        Console.WriteLine($"Completed: {_isComplete}");
     }
 
     public void MarkAsCompleted()
