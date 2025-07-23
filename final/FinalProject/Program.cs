@@ -92,7 +92,7 @@ class Program
             else if (option == "2")
             {
                 Console.WriteLine("\nGenerating your progress summary...");
-                ProgressReport.DisplaySimpleSummary(progressReports, student.GetLesson());
+                ProgressReport.DisplaySimpleSummary(progressReports, student.GetLesson(), areas, student.GetName(), student.GetAge());;
             }
             else if (option == "3")
             {

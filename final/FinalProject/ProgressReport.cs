@@ -136,31 +136,35 @@ public class ProgressReport
 
         Console.WriteLine("Progress report saved successfully.");
     }
-    public static void DisplaySimpleSummary(List<ProgressReport> reports, int lessonsPerArea, List<AreaStudy> allAreas)
+    public static void DisplaySimpleSummary(List<ProgressReport> reports, int lessonsPerArea, List<AreaStudy> allAreas, string studentName, int studentAge)
+{
+    Console.WriteLine("\n===== Simple Progress Summary =====");
+    Console.WriteLine($"Student: {studentName}, Age: {studentAge}");
+
+    foreach (AreaStudy area in allAreas)
     {
-        Console.WriteLine("\n===== Simple Progress Summary =====");
+        string areaName = area.GetAreaName();
+        ProgressReport report = null;
 
-        foreach (AreaStudy area in allAreas)
+        foreach (ProgressReport r in reports)
         {
-            string areaName = area.GetAreaName();
-            ProgressReport report = null;
-
-            foreach (ProgressReport r in reports)
+            if (r.GetAreaName() == areaName)
             {
-                if (r.GetAreaName() == areaName)
-                {
-                    report = r;
-                    break;
-                }
+                report = r;
+                break;
             }
-            int completed = report != null ? report.GetCompletedLessons().Count : 0;
-
-            Console.WriteLine($"\n Area: {areaName}");
-            Console.WriteLine($"Lessons completed: {completed} de {lessonsPerArea}");
-            Console.WriteLine($"Status: {(completed == lessonsPerArea ? "Completed" : "In progreso")}");
         }
 
-        Console.WriteLine("===================================");
+        int completed = report != null ? report.GetCompletedLessons().Count : 0;
+        string status = (completed == 0) ? "Not started" : (completed == lessonsPerArea ? "Completed" : "In progreso");
+
+        Console.WriteLine($"\n Area: {areaName}");
+        Console.WriteLine($"Lessons completed: {completed} de {lessonsPerArea}");
+        Console.WriteLine($"Status: {status}");
     }
+
+    Console.WriteLine("===================================");
+}
+
 
 }

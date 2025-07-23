@@ -28,7 +28,7 @@ public class GrammarActivity : Activity
 
             while (guess.ToLower() != correctWord.ToLower())
             {
-                Console.Write("YOur guess:");
+                Console.Write("Your guess:");
                 guess = Console.ReadLine();
                 attempts++;
 

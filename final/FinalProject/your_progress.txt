@@ -1,7 +1,0 @@
-Area: Business
-Lesson: 1
-Activity: Reading Time: 20
-Activity: Grammar Time: 10
-Activity: Pronunciation Time: 9
-Grammar: To ____ customers, businesses often offer discounts and rewards Attempts: 1
-
