@@ -1,6 +1,9 @@
 using System;
 
-
+/// <summary>
+/// This class defines the Travel area of study.
+/// It includes lessons focused on travel-related vocabulary, phrases, and situations such as booking, transport, and cultural tips.
+/// </summary>
 public class TravelArea : AreaStudy
 {
     public TravelArea() : base("Travel", "Area focused on travel vocabulary and topics.")
@@ -130,7 +133,7 @@ public class TravelArea : AreaStudy
             }
 
         ));
-        
+
 
     }
 

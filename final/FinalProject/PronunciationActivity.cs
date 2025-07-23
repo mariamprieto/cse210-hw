@@ -1,7 +1,12 @@
 
 using System;
+/// <summary>
+/// Represents a pronunciation activity in a lesson.
+/// The user is prompted to repeat key vocabulary words for practice.
+/// </summary>
 public class PronunciationActivity : Activity
 {
+    // Initializes the pronunciation activity with default estimated time and status.
     public PronunciationActivity()
     {
         SetName("Pronunciation");
@@ -10,6 +15,8 @@ public class PronunciationActivity : Activity
 
     }
 
+    // Starts the pronunciation activity by showing content and guiding the user
+    // through repeating each pronunciation word from the lesson.
     public override void Start(Lesson lesson)
     {
         ShowContent(lesson);

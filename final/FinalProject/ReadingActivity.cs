@@ -1,6 +1,12 @@
 using System;
+
+/// <summary>
+/// Represents a reading activity where the student is asked to read a provided text.
+/// Simulates a countdown to represent estimated reading time.
+/// </summary>
 public class ReadingActivity : Activity
 {
+    // Initializes the reading activity with a default estimated time and status.
     public ReadingActivity()
     {
         SetName("Reading");
@@ -8,7 +14,7 @@ public class ReadingActivity : Activity
         SetStatus("Not started");
 
     }
-
+    // Starts the reading activity by displaying the lesson's reading text and a timer.
     public override void Start(Lesson lesson)
     {
         ShowContent(lesson);

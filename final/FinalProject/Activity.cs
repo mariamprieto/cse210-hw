@@ -1,13 +1,17 @@
 using System;
-
+/// <summary>
+/// Abstract base class representing a generic learning activity.
+/// This class is inherited by specific activities like Reading, Grammar, and Pronunciation.
+/// </summary>
 public abstract class Activity
 {
 
-    private string _name;
-    private int _estimatedTime;
-    private int _actualTime;
-    private string _status;
+    private string _name; //Name of the activity 
+    private int _estimatedTime; // Estimated time to complete the activity (in minutes)
+    private int _actualTime; // Actual time taken by the user to complete the activity (in minutes)
+    private string _status;// Status of the activity
 
+    // Getter and Setter 
     public string GetName()
     {
         return _name;
@@ -52,9 +56,17 @@ public abstract class Activity
         _status = status;
 
     }
-
+    
+    /// <summary>
+    /// Abstract method that must be implemented by each specific activity type.
+    /// Defines how the activity starts and interacts with the lesson.
+    /// </summary>
     public abstract void Start(Lesson lesson);
 
+    /// <summary>
+    /// Virtual method to show content related to the activity.
+    /// Can be overridden by child classes for customized display.
+    /// </summary>
     public virtual void ShowContent(Lesson lesson)
     {
         Console.WriteLine($"Starting {_name} the activity");

@@ -1,5 +1,10 @@
 using System;
 
+
+/// <summary>
+/// Represents the progress report for a specific study area,
+/// including completed lessons, activity times, and grammar attempts.
+/// </summary>
 public class ProgressReport
 {
 
@@ -9,6 +14,7 @@ public class ProgressReport
     private Dictionary<string, int> _activityTimes;
     private Dictionary<string, int> _grammarAttempts;
 
+    // Constructor to initialize the report with initial data
     public ProgressReport(string areaName, List<int> completeLessons, Dictionary<string, int> activityTimes, Dictionary<string, int> grammarAttempts)
     {
         _areaName = areaName;
@@ -17,18 +23,18 @@ public class ProgressReport
         _grammarAttempts = grammarAttempts;
 
     }
-
+    // Returns the name of the area
     public string GetAreaName()
     {
         return _areaName;
 
     }
-
+    // Returns the list of completed lessons 
     public List<int> GetCompletedLessons()
     {
         return _completedLessons;
     }
-
+    // Adds the results of a completed lesson to the report
     public void AddLessonResult(Lesson lesson)
     {
         int lessonNumber = lesson.GetNumber();
@@ -67,7 +73,7 @@ public class ProgressReport
             }
         }
     }
-
+    // Displays a detailed report for the specific area
     public void ShowReport()
     {
         Console.WriteLine($"\nProgress Report for Area: {_areaName}");
@@ -92,7 +98,7 @@ public class ProgressReport
 
         }
     }
-
+    // Returns the next lesson number to be completed or -1 if all lessons are done
     public int GetNextLessonNuber(int maxLessons)
 
     {
@@ -108,6 +114,7 @@ public class ProgressReport
             return -1;
         }
     }
+     // Saves the progress report to a file (overwrite mode)
     public void SaveToFile(string filename = "your_progress.txt")
     {
         using (StreamWriter writer = new StreamWriter(filename, false))
@@ -136,35 +143,36 @@ public class ProgressReport
 
         Console.WriteLine("Progress report saved successfully.");
     }
+     // Displays a simple summary for all areas with student info
     public static void DisplaySimpleSummary(List<ProgressReport> reports, int lessonsPerArea, List<AreaStudy> allAreas, string studentName, int studentAge)
-{
-    Console.WriteLine("\n===== Simple Progress Summary =====");
-    Console.WriteLine($"Student: {studentName}, Age: {studentAge}");
-
-    foreach (AreaStudy area in allAreas)
     {
-        string areaName = area.GetAreaName();
-        ProgressReport report = null;
+        Console.WriteLine("\n===== Simple Progress Summary =====");
+        Console.WriteLine($"Student: {studentName}, Age: {studentAge}");
 
-        foreach (ProgressReport r in reports)
+        foreach (AreaStudy area in allAreas)
         {
-            if (r.GetAreaName() == areaName)
+            string areaName = area.GetAreaName();
+            ProgressReport report = null;
+
+            foreach (ProgressReport r in reports)
             {
-                report = r;
-                break;
+                if (r.GetAreaName() == areaName)
+                {
+                    report = r;
+                    break;
+                }
             }
+
+            int completed = report != null ? report.GetCompletedLessons().Count : 0;
+            string status = (completed == 0) ? "Not started" : (completed == lessonsPerArea ? "Completed" : "In progreso");
+
+            Console.WriteLine($"\n Area: {areaName}");
+            Console.WriteLine($"Lessons completed: {completed} de {lessonsPerArea}");
+            Console.WriteLine($"Status: {status}");
         }
 
-        int completed = report != null ? report.GetCompletedLessons().Count : 0;
-        string status = (completed == 0) ? "Not started" : (completed == lessonsPerArea ? "Completed" : "In progreso");
-
-        Console.WriteLine($"\n Area: {areaName}");
-        Console.WriteLine($"Lessons completed: {completed} de {lessonsPerArea}");
-        Console.WriteLine($"Status: {status}");
+        Console.WriteLine("===================================");
     }
-
-    Console.WriteLine("===================================");
-}
 
 
 }

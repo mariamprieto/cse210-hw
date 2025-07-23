@@ -1,9 +1,13 @@
 using System;
 using System.Diagnostics;
 
-
+/// <summary>
+/// Represents a single English lesson that includes reading, grammar, and pronunciation activities.
+/// Tracks completion status, user interaction, and lesson metadata.
+/// </summary>
 public class Lesson
 {
+    // Private attributes 
     private int _number;
     private string _title;
     private string _description;
@@ -13,6 +17,8 @@ public class Lesson
     private List<Activity> _activities;
     private bool _isComplete;
 
+
+    // Public getters for accessing lesson information
     public int GetNumber()
     {
         return _number;
@@ -50,7 +56,9 @@ public class Lesson
     {
         return _isComplete;
     }
-
+    /// <summary>
+    /// Constructor for initializing a lesson with all attributes.
+    /// </summary>
     public Lesson(int number, string title, string description, string readingText, List<string> pronunciationWords, Dictionary<string, string> grammarSentences)
     {
         _number = number;
@@ -68,7 +76,9 @@ public class Lesson
 
     }
 
-
+    /// <summary>
+    /// Displays the lesson title, description, and available activities with their status.
+    /// </summary>
     public void ShowMenuActivities()
     {
         Console.WriteLine($"Lesson {_number}:{_title}");
@@ -82,6 +92,10 @@ public class Lesson
 
     }
 
+    /// <summary>
+    /// Handles the logic to start and complete a selected activity by name.
+    /// Prevents repeating already completed activities.
+    /// </summary>
     public void CompleteActivity(string activityName)
     {
         foreach (Activity activity in _activities)
@@ -101,6 +115,11 @@ public class Lesson
         Console.WriteLine("Activity not found.");
     }
 
+
+    /// <summary>
+    /// Displays a full report of the lesson including time spent and status of each activity.
+    /// </summary>
+
     public void GenerateLessonReport()
     {
         Console.WriteLine($"Lesson Report: {_number} : {_title}");
@@ -113,6 +132,11 @@ public class Lesson
 
         Console.WriteLine($"Completed: {_isComplete}");
     }
+
+    /// <summary>
+    /// Checks if all activities in the lesson have been marked as completed.
+    /// </summary>
+
     public bool IsFullyCompleted()
     {
         foreach (Activity activity in _activities)
@@ -124,11 +148,14 @@ public class Lesson
         }
         return true;
     }
+    /// <summary>
+    /// Marks the lesson as fully completed (to be called after verifying all activities are done).
+    /// </summary>
     public void MarkAsCompleted()
     {
         _isComplete = true;
     }
 
-    
+
 
 }

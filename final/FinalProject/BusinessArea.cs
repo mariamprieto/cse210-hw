@@ -1,6 +1,9 @@
 using System;
 
-
+/// <summary>
+/// Represents the "Business" area of study, focused on business-related vocabulary and topics.
+/// Inherits from AreaStudy and populates lessons with relevant business content.
+/// </summary>
 public class BusinessArea : AreaStudy
 {
     public BusinessArea() : base("Business", "Area focused on business vocabulary and topics.")
